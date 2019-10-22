@@ -1,0 +1,182 @@
+/*
+Theme Name: dnk-theme
+*/
+
+body {
+    font-family: "ArimoRegular", sans-serif;
+    font-weight: normal;
+    font-style: normal;
+}
+
+ul, li {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+    -webkit-transition: all .6s ease 0s;
+    -moz-transition: all .6s ease 0s;
+    -o-transition: all .6s ease 0s;
+    transition: all .6s ease 0s;
+}
+
+a:hover,
+a:focus,
+a:focus:active {
+    text-decoration: none;
+    outline: none;
+}
+
+input,
+textarea {
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+    border: 1px solid transparent;
+    opacity: .3;
+    background-color: #fff;
+    width: 100%;
+    display: block;
+}
+
+input:focus {
+    outline: none;
+}
+
+.nowrap {
+    white-space: nowrap !important;
+}
+
+/* common styles for magnific popup */
+.mfp-container {
+    padding: 0;
+    text-align: center;
+}
+
+@media ( max-width: 559px ) {
+    .mfp-container {
+        height: 0;
+    }
+}
+
+.mfp-content {
+    display: inline-block;
+    vertical-align: top;
+    width: auto !important;
+}
+
+.mfp-bg {
+
+}
+
+.mfp-close {
+    color: #c7c7c7 !important;
+    margin: 0 !important;
+    top: 0;
+    right: 0;
+}
+/* common styles for magnific popup End */
+
+body,
+html {
+    font-size: 16px;
+}
+
+.containerCenter {
+    max-width: 1200px;
+    padding: 0 15px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+}
+
+.containerCenter.wide {
+    max-width: 1200px;
+}
+
+.containerCenter.fullwidth {
+    max-width: none;
+}
+
+@media ( max-width: 767px ) {
+	.containerCenter {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}
+
+/* ---------------------------------------------------------------------------------------------------- */
+/* ----------------------------->>> header <<<--------------------------------------------------------- */
+/* ---------------------------------------------------------------------------------------------------- */
+
+/* ---------------------------------------------------------------------------------------------------- */
+/* ----------------------------->>> header End <<<----------------------------------------------------- */
+/* ---------------------------------------------------------------------------------------------------- */
+
+
+/* ---------------------------------------------------------------------------------------------------- */
+/* ----------------------------->>> breadcrambs <<<---------------------------------------------------- */
+/* ---------------------------------------------------------------------------------------------------- */
+.kama_breadcrumbs,
+.kama_breadcrumbs a,
+.kama_breadcrumbs span {
+    font-family: "PFSquareSansProLight", sans-serif;
+    font-weight: normal;
+    font-style: normal;
+    font-size: 16px;
+    color: #fff;
+}
+
+.kb_sep {
+    padding-left: 2px;
+    padding-right: 2px;
+}
+
+.kama_breadcrumbs a:hover {
+    color: #9588fd;
+}
+
+@media ( max-width: 767px ) {
+    .kama_breadcrumbs a,
+    .kama_breadcrumbs span {
+        font-size: 14px;
+    }
+}
+
+@media ( max-width: 500px ) {
+    .kama_breadcrumbs a,
+    .kama_breadcrumbs span {
+        font-size: 12px;
+    }
+}
+/* ---------------------------------------------------------------------------------------------------- */
+/* ----------------------------->>> breadcrambs End <<<------------------------------------------------ */
+/* ---------------------------------------------------------------------------------------------------- */
+
+
+
+
+/* ---------------------------------------------------------------------------------------------------- */
+/* ----------------------------->>> section.section <<<------------------------------------------------ */
+/* ---------------------------------------------------------------------------------------------------- */
+
+/* ---------------------------------------------------------------------------------------------------- */
+/* ----------------------------->>> section.section End <<<-------------------------------------------- */
+/* ---------------------------------------------------------------------------------------------------- */
+
+
+
+
+
+/* ---------------------------------------------------------------------------------------------------- */
+/* ----------------------------->>> Animation <<<------------------------------------------------------ */
+/* ---------------------------------------------------------------------------------------------------- */
+body {
+    overflow-x: hidden;
+}
+/* ---------------------------------------------------------------------------------------------------- */
+/* ----------------------------->>> Animation End <<<-------------------------------------------------- */
+/* ---------------------------------------------------------------------------------------------------- */
