@@ -84,34 +84,71 @@ html {
     font-size: 16px;
 }
 
-.containerCenter {
-    max-width: 1200px;
-    padding: 0 15px;
+.containerFullWidth {
+    max-width: 1280px;
     width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-    position: relative;
+    margin: 0 auto;
 }
 
-.containerCenter.wide {
-    max-width: 1200px;
+
+
+@media only screen and ( max-width: 1300px ) {
+	.containerFullWidth {
+        max-width: 94%;
+    }
 }
 
-.containerCenter.fullwidth {
-    max-width: none;
-}
-
-@media ( max-width: 767px ) {
-	.containerCenter {
-        padding-left: 10px;
-        padding-right: 10px;
+@media only screen and ( max-width: 767px ) {
+    .containerCenter {
+        max-width: 65%;
     }
 }
 
 /* ---------------------------------------------------------------------------------------------------- */
 /* ----------------------------->>> header <<<--------------------------------------------------------- */
 /* ---------------------------------------------------------------------------------------------------- */
+#header {
+    background-color: none;
+    background: -moz-linear-gradient(top, rgba(23,23,23, 1) 0%, rgba(23,23,23, 0) 100%);
+    background: -webkit-linear-gradient(top, rgba(23,23,23, 1) 0%, rgba(23,23,23, 0) 100%);
+    background: linear-gradient(to bottom, rgba(23,23,23, 1) 0%, rgba(23,23,23, 0) 100%);
+    padding: 20px 0 30px;
+}
 
+.header_inner {
+    display: -webkit-box;
+    display: -ms-flexbox;
+           display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+       -ms-flex-align: center;
+          align-items: center;
+}
+
+.header_logoLink {
+    display: -webkit-box;
+    display: -ms-flexbox;
+           display: flex;
+    -webkit-box-align: center;
+       -ms-flex-align: center;
+          align-items: center;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+}
+
+.header_logoImgIcon {
+    width: 80px;
+    height: auto;
+}
+
+.header_logoImgText {
+    width: 80px;
+    height: auto;
+    margin: 0 0 0 10px;
+}
 /* ---------------------------------------------------------------------------------------------------- */
 /* ----------------------------->>> header End <<<----------------------------------------------------- */
 /* ---------------------------------------------------------------------------------------------------- */

@@ -461,11 +461,11 @@ function custom_scripts()
     ================================= Подключение стилей ============================================
     ================================================================================================*/
     // Load our main stylesheet
-    wp_enqueue_style('twentyfourteen-style', get_stylesheet_uri(), array('bootstrap', 'slick-slider-css', 'magnific-popup', 'fonts',
+    wp_enqueue_style('twentyfourteen-style', get_stylesheet_uri(), array('reset', 'slick-slider-css', 'magnific-popup', 'fonts',
         'owl-carousel-css', 'owl-carousel-theme-default-css', 'animate'));
-    // Load bootstrap stylesheet
-    wp_register_style('bootstrap', get_template_directory_uri() . '/css/bootstrap.css');
-    wp_enqueue_style('bootstrap');
+    // Load reset stylesheet
+    wp_register_style('reset', get_template_directory_uri() . '/css/reset.css');
+    wp_enqueue_style('reset');
     // Load animate stylesheet
     wp_register_style('animate', get_template_directory_uri() . '/plugins/animation/animate.css');
     wp_enqueue_style('animate');

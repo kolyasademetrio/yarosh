@@ -43,61 +43,13 @@ if ( function_exists( 'pll_current_language' ) ) {
 
 		<!--header-->
 		<header class="header" id="header">
-			<div class="containerCenter wide">
-				<div class="containerCenterInner">
-					<div class="header__logoWrap containerCenter">
-						<a href="/" class="header__logoLink">
-							<!--<span class="header__logoImgWrap">
-						<img src="<?php /*the_field('logo', 'option'); */?>" alt="">
-					</span>
-					<span class="header__logoText">
-						<?php /*the_field('text_logo_'.$locale, 'option'); */?>
-					</span>-->
-						</a>
-					</div>
-
-					<!--<div class="header__menus" id="header__menus">
-				<div class="containerCenter">
-					<a href="#menu__mobile" class="header__humburger">
-						<span></span><span></span><span></span>
-					</a>
-
-					<a href="/" class="header__logoLink logo__hidden">
-						<span class="header__logoImgWrap">
-							<img src="<?php /*the_field('logo', 'option'); */?>" alt="">
-						</span>
-						<span class="header__logoText">
-							<?php /*the_field('text_logo_'.$locale, 'option'); */?>
-						</span>
-					</a>
-
-					<nav class="header__nav">
-						<?php /*$menu_name = 'main_menu_'. $locale; */?>
-						<?php
-					/*						wp_nav_menu( array(
-                                                'theme_location'  => 'primary',
-                                                'menu'            => 'main_menu_ru',
-                                                'container'       => '',
-                                                'container_class' => '',
-                                                'container_id'    => '',
-                                                'menu_class'      => 'header__menu',
-                                                'menu_id'         => '',
-                                                'echo'            => true,
-                                                'fallback_cb'     => 'wp_page_menu',
-                                                'before'          => '',
-                                                'after'           => '',
-                                                'link_before' => '',
-                                                'link_after'  => '',
-                                                'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
-                                                'depth'           => 0,
-                                                'walker'          => '',
-                                            ) );
-                                            */?>
-					</nav>
-					<ul class="header__langsWrap"><?php /*pll_the_languages();*/?></ul>
-				</div>
-			</div>-->
-				</div>
+			<div class="containerFullWidth">
+                <div class="header_inner">
+                    <a href="" class="header_logoLink">
+                        <img src="https://i2.wp.com/www.davidefiammenghi.com/wp-content/uploads/logos/df-logo-2019-08.png?fit=1024%2C1024" alt="" class="header_logoImgIcon">
+                        <img src="https://i2.wp.com/www.davidefiammenghi.com/wp-content/uploads/logos/df-logo-2019-08.png?fit=1024%2C1024" alt="" class="header_logoImgText">
+                    </a>
+                </div>
 			</div>
 		</header>
 
