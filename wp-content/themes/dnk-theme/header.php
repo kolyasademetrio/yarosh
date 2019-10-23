@@ -45,10 +45,23 @@ if ( function_exists( 'pll_current_language' ) ) {
 		<header class="header" id="header">
 			<div class="containerFullWidth">
                 <div class="header_inner">
-                    <a href="" class="header_logoLink">
-                        <img src="https://i2.wp.com/www.davidefiammenghi.com/wp-content/uploads/logos/df-logo-2019-08.png?fit=1024%2C1024" alt="" class="header_logoImgIcon">
-                        <img src="https://i2.wp.com/www.davidefiammenghi.com/wp-content/uploads/logos/df-logo-2019-08.png?fit=1024%2C1024" alt="" class="header_logoImgText">
-                    </a>
+                    <?php if ( is_front_page() ) : ?>
+                        <!--<div class="header-left__logo">
+                            <img src="<?php /*echo $logo; */?>" alt="">
+                        </div>-->
+                        <div class="header_logoLink">
+                            <img src="https://i2.wp.com/www.davidefiammenghi.com/wp-content/uploads/logos/df-logo-2019-08.png?fit=1024%2C1024" alt="" class="header_logoImgIcon">
+                            <img src="https://i2.wp.com/www.davidefiammenghi.com/wp-content/uploads/logos/df-logo-2019-08.png?fit=1024%2C1024" alt="" class="header_logoImgText">
+                        </div>
+                    <?php else : ?>
+                        <!--<a href="<?php /*echo esc_url(home_url('/')); */?>" class="header-left__logo">
+                            <img src="<?php /*bloginfo('template_url'); */?>/img/logo.png" alt="">
+                        </a>-->
+                        <a href="<?php echo esc_url(home_url('/'));?>" class="header_logoLink">
+                            <img src="https://i2.wp.com/www.davidefiammenghi.com/wp-content/uploads/logos/df-logo-2019-08.png?fit=1024%2C1024" alt="" class="header_logoImgIcon">
+                            <img src="https://i2.wp.com/www.davidefiammenghi.com/wp-content/uploads/logos/df-logo-2019-08.png?fit=1024%2C1024" alt="" class="header_logoImgText">
+                        </a>
+                    <?php endif; ?>
                 </div>
 			</div>
 		</header>
