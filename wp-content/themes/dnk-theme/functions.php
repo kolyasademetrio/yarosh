@@ -466,6 +466,9 @@ function custom_scripts()
     // Load reset stylesheet
     wp_register_style('reset', get_template_directory_uri() . '/css/reset.css');
     wp_enqueue_style('reset');
+    // Load font awesome stylesheet
+    wp_register_style('font-awesome', get_template_directory_uri() . '/font-awesome/css/font-awesome.css');
+    wp_enqueue_style('font-awesome');
     // Load animate stylesheet
     wp_register_style('animate', get_template_directory_uri() . '/plugins/animation/animate.css');
     wp_enqueue_style('animate');

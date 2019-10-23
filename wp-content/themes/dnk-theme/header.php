@@ -62,6 +62,32 @@ if ( function_exists( 'pll_current_language' ) ) {
                             <img src="https://i2.wp.com/www.davidefiammenghi.com/wp-content/uploads/logos/df-logo-2019-08.png?fit=1024%2C1024" alt="" class="header_logoImgText">
                         </a>
                     <?php endif; ?>
+
+
+                    <nav class="header__nav">
+                        <?php /*$menu_name = 'main_menu_'. $locale; */?>
+                        <?php $menu_name = 'main_menu_'. 'ua'; ?>
+                        <?php
+                            wp_nav_menu( array(
+                                'theme_location'  => 'primary',
+                                'menu'            => 'main_menu_ru',
+                                'container'       => '',
+                                'container_class' => '',
+                                'container_id'    => '',
+                                'menu_class'      => 'header_menu',
+                                'menu_id'         => '',
+                                'echo'            => true,
+                                'fallback_cb'     => 'wp_page_menu',
+                                'before'          => '',
+                                'after'           => '',
+                                'link_before' => '',
+                                'link_after'  => '',
+                                'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+                                'depth'           => 0,
+                                'walker'          => '',
+                            ) );
+                        ?>
+                    </nav>
                 </div>
 			</div>
 		</header>
