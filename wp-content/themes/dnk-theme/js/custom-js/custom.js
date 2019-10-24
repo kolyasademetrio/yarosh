@@ -13,7 +13,66 @@ jQuery(document).ready(function($){
         $('#search-box').removeClass('show-search-box');
     });
 
+    function animateItems($items){
+        var i = 0;
+        x = true;
+        var animate = function() {
+            setTimeout(function() {
+                $($items[i]).addClass('shown');
+                (x) ? i++ : i--;
+                console.log(i);
+                if (i < $items.length && i >= 0) {
+                    animate();
+                };
+            }, 60);
+        };
+        animate();
+    }
 
+    function isInViewport($elem) {
+        var elementTop = $elem.offset().top;
+        var elementBottom = elementTop + $elem.outerHeight();
+        var viewportTop = $(window).scrollTop();
+        var viewportBottom = viewportTop + $(window).height();
+        return elementBottom > viewportTop && elementTop < viewportBottom;
+    };
+    
+    if( isInViewport($('.categories_content')) ){
+        animateItems($('.categories_listItem'));
+    }
+
+    $(window).scroll(function(){
+        if( isInViewport($('.categories_content')) ){
+            animateItems($('.categories_listItem'));
+        }
+    });
+
+    /* ------------------------>>> Якоря меню <<<------------------------------------------------------ */
+    function ancor ($ancor) {
+        $ancor.on('click', function(e){
+            var thisHREF = $(this).attr('href');
+            if ( thisHREF.startsWith('#') ) {
+                var $goal = $(thisHREF),
+                    headerHeight = $('#header').innerHeight();
+
+                if ( $goal.length ) {
+                    $('html,body').stop().animate({scrollTop: $goal.offset().top - headerHeight}, 1000);
+                    setTimeout(function(){
+                        animateItems($('.categories_listItem'));
+                    }, 500)
+                    //animateItems($('.categories_listItem'));
+                    e.preventDefault();
+                } else {
+                    var homeURL = window.location.protocol + "//" + window.location.host + "/",
+                        redirectURL = homeURL + thisHREF;
+
+                    window.location.href = redirectURL;
+                }
+            }
+        });
+    }
+    ancor( $('.scroll-down') );
+    /* ------------------------>>> Якоря меню End <<<-------------------------------------------------- */
 
 
 
@@ -113,31 +172,7 @@ jQuery(document).ready(function($){
     /* ------------------------>>> setStickyHeader End <<<--------------------------------------------- */
 
 
-    /* ------------------------>>> Якоря меню <<<------------------------------------------------------ */
-    function ancor ($ancor) {
-        $ancor.on('click', function(e){
-            
-            console.log( $(this) );
-            
-            var thisHREF = $(this).attr('href');
-            if ( thisHREF.startsWith('#') ) {
-                var $goal = $(thisHREF),
-                    headerHeight = $('.header__menus').innerHeight();
 
-                if ( $goal.length ) {
-                    $('html,body').stop().animate({scrollTop: $goal.offset().top - headerHeight}, 1000);
-                    e.preventDefault();
-                } else {
-                    var homeURL = window.location.protocol + "//" + window.location.host + "/",
-                        redirectURL = homeURL + thisHREF;
-
-                    window.location.href = redirectURL;
-                }
-            }
-        });
-    }
-    //ancor( $('li.menu-item>a') );
-    /* ------------------------>>> Якоря меню End <<<-------------------------------------------------- */
 
 
     /* ------------------------>>> Анимация скролла при переходе на якорь с Внутренней страницы <<<----- */

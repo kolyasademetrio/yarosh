@@ -13,7 +13,7 @@ if ( function_exists( 'pll_current_language' ) ) {
 
     <div class="mainScreen" style="background-image: url(<?php echo $mainScreen_bg ?>);">
         <div class="containerFullWidth">
-            <a href="#" class="scroll-down">
+            <a href="#categories" class="scroll-down">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -21,11 +21,13 @@ if ( function_exists( 'pll_current_language' ) ) {
         </div>
     </div>
 
-    <div class="categories">
+    <?php if(get_field('categories_showOnPage')): ?>
+    <div class="categories" id="categories">
         <div class="containerFullWidth">
-            <h3 class="categories_title"></h3>
+            <h3 class="categories_title"><?php the_field('categories_title'); ?></h3>
             <div class="categories_content">
-                <ul class="categories_list">
+                <?php $catsInRow = get_field('categories_inRowQty'); ?>
+                <ul class="categories_list columns_<?php echo $catsInRow; ?>">
                     <?php
                     $args = array(
                         "hide_empty" => 0,
@@ -37,21 +39,30 @@ if ( function_exists( 'pll_current_language' ) ) {
 
                     $categories = get_categories($args);
 
-                    foreach($categories as $category) :
+                    foreach($categories as $i => $category) :
                         $image_src = get_field('category_featured_image', 'term_' . $category->term_id);
                         ?>
-                        <li class="categories_listItem" style="background-image: url(<?php echo $image_src; ?>);">
-                            <a href="' . get_category_link($category->term_id) . '" class="categories_link">
+                        <li class="categories_listItem">
+                            <a href="<?php echo get_category_link($category->term_id); ?>" class="categories_link" style="background-image: url(<?php echo $image_src; ?>);">
                                 <span class="categories_name">
-                                    <?php echo $category->name; ?>
+                                    <span class="categories_nameInner">
+                                        <?php echo $category->name; ?>
+                                    </span>
                                 </span>
                             </a>
                         </li>
+                     <?php if((($i + 1) % $catsInRow == 0) && (($i + 1) != count($categories))): ?>
+                    </ul>
+                    <ul class="categories_list columns_<?php echo $catsInRow; ?>">
+                    <?php endif; ?>
                     <?php endforeach; ?>
                 </ul>
             </div>
         </div>
     </div>
+    <?php endif; ?>
+
+
 
     <?php
 /*    $about_bg = get_field('about_bg');
