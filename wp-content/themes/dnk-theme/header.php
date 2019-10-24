@@ -104,35 +104,6 @@ if ( function_exists( 'pll_current_language' ) ) {
 			</div>
 		</header>
 
-		<!--<div id="menu_mobile" class="menu_mobile mfp-hide">
-			<div class="menu__mobileInner">
-				<ul class="header__langsWrap"><?php /*pll_the_languages();*/?></ul>
-				<nav class="header__nav">
-					<?php /*$menu_name = 'main_menu_'. $locale; */?>
-					<?php
-/*					wp_nav_menu( array(
-						'theme_location'  => 'primary',
-						'menu'            => $menu_name,
-						'container'       => '',
-						'container_class' => '',
-						'container_id'    => '',
-						'menu_class'      => 'header_menu',
-						'menu_id'         => '',
-						'echo'            => true,
-						'fallback_cb'     => 'wp_page_menu',
-						'before'          => '',
-						'after'           => '',
-						'link_before' => '',
-						'link_after'  => '',
-						'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
-						'depth'           => 0,
-						'walker'          => '',
-					) );
-					*/?>
-				</nav>
-			</div>
-		</div>-->
-
 		<div id="main" class="site__main">
 
 
