@@ -1,5 +1,17 @@
 jQuery(document).ready(function($){
 
+    $('.header_menuBtn').on('click', function(e){
+        $(this).toggleClass('on');
+        $('#header').toggleClass('menuOpened');
+    });
+
+
+
+
+
+
+
+
     /* ------------------------>>> setStickyHeader <<<------------------------------------------------- */
     (function(){
         if ( $("#header__menus").length ) {

@@ -7,6 +7,20 @@ if ( function_exists( 'pll_current_language' ) ) {
 }
 ?>
 
+<?php
+    $mainScreen_bg = get_field('mainScreen_bg');
+?>
+
+    <div class="mainScreen" style="background-image: url(<?php echo $mainScreen_bg ?>);">
+        <div class="containerFullWidth">
+            <a href="#" class="scroll-down">
+                <span></span>
+                <span></span>
+                <span></span>
+            </a>
+        </div>
+    </div>
+
     <?php
 /*    $about_bg = get_field('about_bg');
     $about_content = get_field('about_content');

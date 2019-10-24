@@ -50,27 +50,27 @@ if ( function_exists( 'pll_current_language' ) ) {
                             <img src="<?php /*echo $logo; */?>" alt="">
                         </div>-->
                         <div class="header_logoLink">
-                            <img src="https://i2.wp.com/www.davidefiammenghi.com/wp-content/uploads/logos/df-logo-2019-08.png?fit=1024%2C1024" alt="" class="header_logoImgIcon">
-                            <img src="https://i2.wp.com/www.davidefiammenghi.com/wp-content/uploads/logos/df-logo-2019-08.png?fit=1024%2C1024" alt="" class="header_logoImgText">
+                            <img src="<?php the_field('header_logoImgIcon', 'option'); ?>" alt="" class="header_logoImgIcon">
+                            <img src="<?php the_field('header_logoImgText', 'option'); ?>" alt="" class="header_logoImgText">
                         </div>
                     <?php else : ?>
                         <!--<a href="<?php /*echo esc_url(home_url('/')); */?>" class="header-left__logo">
                             <img src="<?php /*bloginfo('template_url'); */?>/img/logo.png" alt="">
                         </a>-->
                         <a href="<?php echo esc_url(home_url('/'));?>" class="header_logoLink">
-                            <img src="https://i2.wp.com/www.davidefiammenghi.com/wp-content/uploads/logos/df-logo-2019-08.png?fit=1024%2C1024" alt="" class="header_logoImgIcon">
-                            <img src="https://i2.wp.com/www.davidefiammenghi.com/wp-content/uploads/logos/df-logo-2019-08.png?fit=1024%2C1024" alt="" class="header_logoImgText">
+                            <img src="<?php the_field('header_logoImgIcon', 'option'); ?>" alt="" class="header_logoImgIcon">
+                            <img src="<?php the_field('header_logoImgText', 'option'); ?>" alt="" class="header_logoImgText">
                         </a>
                     <?php endif; ?>
 
 
-                    <nav class="header__nav">
-                        <?php /*$menu_name = 'main_menu_'. $locale; */?>
-                        <?php $menu_name = 'main_menu_'. 'ua'; ?>
+                    <nav class="header_nav">
+                        <!-- START: menu -->
+                        <?php $menu_name = 'main_menu_'. $locale; ?>
                         <?php
                             wp_nav_menu( array(
                                 'theme_location'  => 'primary',
-                                'menu'            => 'main_menu_ru',
+                                'menu'            => $menu_name,
                                 'container'       => '',
                                 'container_class' => '',
                                 'container_id'    => '',
@@ -87,12 +87,26 @@ if ( function_exists( 'pll_current_language' ) ) {
                                 'walker'          => '',
                             ) );
                         ?>
+                        <!-- FINISH: menu -->
+
+                        <!-- START: languages -->
+                        <ul class="header_langsWrap"><?php pll_the_languages( array( 'show_flags' => 1,'show_names' => 0  )); ?></ul>
+                        <!-- FINISH: languages -->
                     </nav>
+
+                    <!-- START: search -->
+                    <div class="header_search">
+                        <a href="#" class="header_searchBtn"></a>
+                    </div>
+                    <div class="header_menuBtn">
+                        <span class="header_menuBtn-linebar"></span>
+                    </div>
+                    <!-- FINISH: search -->
                 </div>
 			</div>
 		</header>
 
-		<!--<div id="menu__mobile" class="menu__mobile mfp-hide">
+		<!--<div id="menu_mobile" class="menu_mobile mfp-hide">
 			<div class="menu__mobileInner">
 				<ul class="header__langsWrap"><?php /*pll_the_languages();*/?></ul>
 				<nav class="header__nav">
@@ -100,11 +114,11 @@ if ( function_exists( 'pll_current_language' ) ) {
 					<?php
 /*					wp_nav_menu( array(
 						'theme_location'  => 'primary',
-						'menu'            => 'main_menu_ru',
+						'menu'            => $menu_name,
 						'container'       => '',
 						'container_class' => '',
 						'container_id'    => '',
-						'menu_class'      => 'header__menu',
+						'menu_class'      => 'header_menu',
 						'menu_id'         => '',
 						'echo'            => true,
 						'fallback_cb'     => 'wp_page_menu',
