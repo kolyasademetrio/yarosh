@@ -46,17 +46,11 @@ if ( function_exists( 'pll_current_language' ) ) {
 			<div class="containerFullWidth">
                 <div class="header_inner">
                     <?php if ( is_front_page() ) : ?>
-                        <!--<div class="header-left__logo">
-                            <img src="<?php /*echo $logo; */?>" alt="">
-                        </div>-->
                         <div class="header_logoLink">
                             <img src="<?php the_field('header_logoImgIcon', 'option'); ?>" alt="" class="header_logoImgIcon">
                             <img src="<?php the_field('header_logoImgText', 'option'); ?>" alt="" class="header_logoImgText">
                         </div>
                     <?php else : ?>
-                        <!--<a href="<?php /*echo esc_url(home_url('/')); */?>" class="header-left__logo">
-                            <img src="<?php /*bloginfo('template_url'); */?>/img/logo.png" alt="">
-                        </a>-->
                         <a href="<?php echo esc_url(home_url('/'));?>" class="header_logoLink">
                             <img src="<?php the_field('header_logoImgIcon', 'option'); ?>" alt="" class="header_logoImgIcon">
                             <img src="<?php the_field('header_logoImgText', 'option'); ?>" alt="" class="header_logoImgText">
@@ -96,7 +90,11 @@ if ( function_exists( 'pll_current_language' ) ) {
 
                     <!-- START: search -->
                     <div class="header_search">
-                        <a href="#" class="header_searchBtn"></a>
+                        <div class="header_searchBtn"></div>
+                        <div id="search-box" class="clearfix">
+                            <div class="search-x"></div>
+                            <?php get_search_form(); ?>
+                        </div>
                     </div>
                     <div class="header_menuBtn">
                         <span class="header_menuBtn-linebar"></span>

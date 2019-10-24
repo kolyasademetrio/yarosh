@@ -5,6 +5,14 @@ jQuery(document).ready(function($){
         $('#header').toggleClass('menuOpened');
     });
 
+    $('.header_searchBtn').on('click', function(e){
+        $('#search-box').addClass('show-search-box');
+    });
+
+    $('.search-x').on('click', function(e){
+        $('#search-box').removeClass('show-search-box');
+    });
+
 
 
 
