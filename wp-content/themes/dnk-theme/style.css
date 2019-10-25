@@ -171,9 +171,9 @@ html {
 
 
 @media only screen and ( max-width: 1300px ) {
-	.containerFullWidth {
+	/*.containerFullWidth {
         max-width: 94%;
-    }
+    }*/
 }
 
 @media only screen and ( max-width: 767px ) {
@@ -195,6 +195,7 @@ html {
     top: 0;
     right: 0;
     left: 0;
+    z-index: 10;
 
     transition: all 300ms;
 }
@@ -1014,7 +1015,7 @@ input.search-field {
     -webkit-transform: scale(0);
     transform: scale(0);
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-    background-clip: padding-box !important;
+    background-clip: border-box !important;
 }
 
 .categories_listItem.shown {
@@ -1093,7 +1094,19 @@ input.search-field {
     right: 0;
 }
 
-    /* ---------------------------------------------------------------------------------------------------- */
+@media only screen and (max-width: 1300px){
+    .columns_4 {
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    }
+
+    .columns_4 .categories_listItem {
+        -ms-flex-preferred-size: 370px;
+        flex-basis: 370px;
+    }
+}
+
+/* ---------------------------------------------------------------------------------------------------- */
 /* ----------------------------->>> categories End <<<------------------------------------------------- */
 /* ---------------------------------------------------------------------------------------------------- */
 
