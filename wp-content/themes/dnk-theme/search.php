@@ -9,45 +9,44 @@
 
 get_header(); ?>
 
-	<section id="primary" class="content-area">
-		<main id="main" class="site-main" role="main">
+<div class="gallery before_after_grid inner_page" id="gallery">
+    <div class="containerFullWidth">
+        <h3 class="section_title"><?php echo __('Результат поиска'); ?></h3>
+        <div class="items_content">
 
-		<?php if ( have_posts() ) : ?>
+            <?php if ( have_posts() ) : ?>
+            <?php $galleryInRow = 3; ?>
+            <ul class="items_list columns_<?php echo $galleryInRow; ?>">
+                <?php
+                $index = 0;
+                while ( have_posts() ) : the_post(); ?>
+                    <li class="items_listItem">
+                        <a href="<?php the_permalink(); ?>" class="items_link">
+                            <span class="before_after_img_wrap before_warp">
+                                <img src="<?php the_field('featured_img_before', get_the_ID()); ?>" alt="<?php echo  __( 'До', 'twentyfifteen' ); ?>">
+                            </span>
+                            <span class="before_after_img_wrap after_wrap">
+                                <img src="<?php the_field('featured_img_after', get_the_ID()); ?>" alt="<?php echo __( 'После', 'twentyfifteen' ); ?>">
+                            </span>
+                        </a>
+                    </li>
+                    <?php if((($index + 1) % $galleryInRow == 0) && (($index + 1) != $wp_query->post_count)): ?>
+                        </ul>
+                        <ul class="items_list columns_<?php echo $galleryInRow; ?>">
+                    <?php endif; ?>
+                    <?php
+                    $index++;
+                endwhile;
+                ?>
 
-			<header class="page-header">
-				<h1 class="page-title"><?php printf( __( 'Search Results for: %s', 'twentyfifteen' ), get_search_query() ); ?></h1>
-			</header><!-- .page-header -->
+                </ul>
+            <?php endif; ?>
+            <?php
+            wp_reset_postdata();
+            ?>
+        </div>
+    </div>
+</div>
 
-			<?php
-			// Start the loop.
-			while ( have_posts() ) : the_post(); ?>
-
-				<?php
-				/*
-				 * Run the loop for the search to output the results.
-				 * If you want to overload this in a child theme then include a file
-				 * called content-search.php and that will be used instead.
-				 */
-				get_template_part( 'content', 'search' );
-
-			// End the loop.
-			endwhile;
-
-			// Previous/next page navigation.
-			the_posts_pagination( array(
-				'prev_text'          => __( 'Previous page', 'twentyfifteen' ),
-				'next_text'          => __( 'Next page', 'twentyfifteen' ),
-				'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'twentyfifteen' ) . ' </span>',
-			) );
-
-		// If no content, include the "No posts found" template.
-		else :
-			get_template_part( 'content', 'none' );
-
-		endif;
-		?>
-
-		</main><!-- .site-main -->
-	</section><!-- .content-area -->
 
 <?php get_footer(); ?>

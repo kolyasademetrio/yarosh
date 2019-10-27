@@ -1091,6 +1091,7 @@ add_action('init', function () {
 		pll_register_string('twentyfifteen', 'До');
 		pll_register_string('twentyfifteen', 'После');
 		pll_register_string('twentyfifteen', 'В данной категории нет записей');
+		pll_register_string('twentyfifteen', 'Результат поиска');
 	}
 });
 
