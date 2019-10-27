@@ -30,7 +30,7 @@ if ( wp_is_mobile() ) {
 <?php
 $bodyClass = (!is_front_page()) ? 'internalPages' : 'homePage';
 ?>
-<body <?php body_class($bodyClass); ?>>
+<body <?php body_class($bodyClass); ?> style="background-image: url('<?php the_field('bg_page', get_the_ID()); ?>');">
 
 <?php
 if ( function_exists( 'pll_current_language' ) ) {

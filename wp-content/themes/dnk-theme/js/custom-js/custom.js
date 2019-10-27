@@ -20,7 +20,6 @@ jQuery(document).ready(function($){
             setTimeout(function() {
                 $($items[i]).addClass('shown');
                 (x) ? i++ : i--;
-                console.log(i);
                 if (i < $items.length && i >= 0) {
                     animate();
                 };
@@ -30,11 +29,13 @@ jQuery(document).ready(function($){
     }
 
     function isInViewport($elem) {
-        var elementTop = $elem.offset().top;
-        var elementBottom = elementTop + $elem.outerHeight();
-        var viewportTop = $(window).scrollTop();
-        var viewportBottom = viewportTop + $(window).height();
-        return elementBottom > viewportTop && elementTop < viewportBottom;
+        if($elem.length){
+            var elementTop = $elem.offset().top;
+            var elementBottom = elementTop + $elem.outerHeight();
+            var viewportTop = $(window).scrollTop();
+            var viewportBottom = viewportTop + $(window).height();
+            return elementBottom > viewportTop && elementTop < viewportBottom;
+        }
     };
     
     if( isInViewport($('.gallery .items_content')) ){
@@ -61,9 +62,14 @@ jQuery(document).ready(function($){
     function ancor ($ancor) {
         $ancor.on('click', function(e){
             var thisHREF = $(this).attr('href');
+            if(thisHREF === '#'){
+                e.preventDefault();
+                return false;
+            }
+
             if ( thisHREF.startsWith('#') ) {
                 var $goal = $(thisHREF),
-                    headerHeight = $('#header').innerHeight();
+                    headerHeight = $('#header').innerHeight() - 45;
 
                 if ( $goal.length ) {
                     $('html,body').stop().animate({scrollTop: $goal.offset().top - headerHeight}, 1000);
@@ -82,6 +88,7 @@ jQuery(document).ready(function($){
         });
     }
     ancor( $('.scroll-down') );
+    ancor( $('.menu-item a') );
     /* ------------------------>>> Якоря меню End <<<-------------------------------------------------- */
 
     /* ------------------------>>> setStickyHeader <<<------------------------------------------------- */
@@ -246,6 +253,8 @@ jQuery(document).ready(function($){
     /* ------------------------>>> Прижать футер к низу <<<------------------------------------------------- */
     (function(){
         if (  $('footer.footer').length ) {
+            console.log( 'dsddd' );
+            
             $(window).load(function(){
                 footer();
             });
