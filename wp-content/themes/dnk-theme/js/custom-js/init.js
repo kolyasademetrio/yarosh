@@ -34,21 +34,26 @@ jQuery(document).ready(function($) {
     });
 
     (function(){
-        var slidesToShow = 7,
+        var slidesToShow = 1,
             windowWidth = $(window).width();
 
         if ( windowWidth < 1200 && windowWidth > 767 ) {
-            slidesToShow = 5;
+            slidesToShow = 1;
         } else if ( windowWidth <= 767 && windowWidth >= 320 ) {
-            slidesToShow = 3;
+            slidesToShow = 1;
         }
 
-        $('.partners__list').owlCarousel({
+        $('.slider').owlCarousel({
             center: true,
             loop: true,
             items: slidesToShow,
-            autoplay: true,
-            autoplayTimeout:3000
+            autoplay: false,
+            autoplayTimeout:3000,
+
+            navigation : true, // Show next and prev buttons
+            slideSpeed : 300,
+            paginationSpeed : 400,
+            singleItem:true
         });
     })();
 

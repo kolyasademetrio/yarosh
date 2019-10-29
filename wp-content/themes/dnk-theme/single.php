@@ -1,6 +1,6 @@
 <?php
 /**
- * The template for displaying all single posts and attachments
+ * The template for displaying search results pages.
  *
  * @package WordPress
  * @subpackage Twenty_Fifteen
@@ -9,40 +9,29 @@
 
 get_header(); ?>
 
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main" role="main">
+<div class="gallery before_after_grid inner_page" id="gallery">
+    <div class="containerFullWidth">
+        <h3 class="section_title"><?php echo __('Результат поиска'); ?></h3>
+        <div class="slider_content">
 
-		<?php
-		// Start the loop.
-		while ( have_posts() ) : the_post();
+            <?php if ( have_posts() ) : ?>
+                <?php while ( have_posts() ) : the_post(); ?>
+                    <?php $slider = get_field('slider', get_the_ID()); ?>
+                    <?php if(!empty($slider)): ?>
+                        <div class="slider slider_list owl-carousel">
+                            <?php foreach($slider as $slide): ?>
+                                <a href="<?php echo $slide['image']; ?>" class="slider_link">
+                                    <img src="<?php echo $slide['image']; ?>" alt="" class="slider_image">
+                                </a>
+                            <?php endforeach; ?>
+                        </div>
+                    <?php endif; ?>
+                <?php endwhile; ?>
+            <?php endif; ?>
+            <?php wp_reset_postdata(); ?>
+        </div>
+    </div>
+</div>
 
-			/*
-			 * Include the post format-specific template for the content. If you want to
-			 * use this in a child theme, then include a file called content-___.php
-			 * (where ___ is the post format) and that will be used instead.
-			 */
-			get_template_part( 'content', get_post_format() );
-
-			// If comments are open or we have at least one comment, load up the comment template.
-			if ( comments_open() || get_comments_number() ) :
-				comments_template();
-			endif;
-
-			// Previous/next post navigation.
-			the_post_navigation( array(
-				'next_text' => '<span class="meta-nav" aria-hidden="true">' . __( 'Next', 'twentyfifteen' ) . '</span> ' .
-					'<span class="screen-reader-text">' . __( 'Next post:', 'twentyfifteen' ) . '</span> ' .
-					'<span class="post-title">%title</span>',
-				'prev_text' => '<span class="meta-nav" aria-hidden="true">' . __( 'Previous', 'twentyfifteen' ) . '</span> ' .
-					'<span class="screen-reader-text">' . __( 'Previous post:', 'twentyfifteen' ) . '</span> ' .
-					'<span class="post-title">%title</span>',
-			) );
-
-		// End the loop.
-		endwhile;
-		?>
-
-		</main><!-- .site-main -->
-	</div><!-- .content-area -->
 
 <?php get_footer(); ?>
