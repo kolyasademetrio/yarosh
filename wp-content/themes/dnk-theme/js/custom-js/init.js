@@ -50,7 +50,7 @@ jQuery(document).ready(function($) {
             autoplay: false,
             autoplayTimeout:3000,
 
-            navigation : true, // Show next and prev buttons
+            nav : true, // Show next and prev buttons
             slideSpeed : 300,
             paginationSpeed : 400,
             singleItem:true
@@ -58,7 +58,7 @@ jQuery(document).ready(function($) {
     })();
 
 
-    new WOW().init();
+    //new WOW().init();
 
 });
 

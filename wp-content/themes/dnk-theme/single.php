@@ -10,12 +10,12 @@
 get_header(); ?>
 
 <div class="gallery before_after_grid inner_page" id="gallery">
-    <div class="containerFullWidth">
-        <h3 class="section_title"><?php echo __('Результат поиска'); ?></h3>
-        <div class="slider_content">
-
-            <?php if ( have_posts() ) : ?>
-                <?php while ( have_posts() ) : the_post(); ?>
+    <div class="containerFullWidth containerCenter">
+        <?php if ( have_posts() ) : ?>
+            <?php while ( have_posts() ) : the_post(); ?>
+                <h3 class="section_title"><?php the_title(); ?></h3>
+                <div class="section_description"><?php the_content(); ?></div>
+                <div class="slider_content">
                     <?php $slider = get_field('slider', get_the_ID()); ?>
                     <?php if(!empty($slider)): ?>
                         <div class="slider slider_list owl-carousel">
@@ -26,10 +26,10 @@ get_header(); ?>
                             <?php endforeach; ?>
                         </div>
                     <?php endif; ?>
-                <?php endwhile; ?>
-            <?php endif; ?>
-            <?php wp_reset_postdata(); ?>
-        </div>
+                </div>
+                <?php wp_reset_postdata(); ?>
+            <?php endwhile; ?>
+        <?php endif; ?>
     </div>
 </div>
 
