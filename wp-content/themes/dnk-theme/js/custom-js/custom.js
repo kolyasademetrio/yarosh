@@ -116,6 +116,33 @@ jQuery(document).ready(function($){
     /* ------------------------>>> setStickyHeader End <<<--------------------------------------------- */
 
 
+    /* ------------------------>>> Прижать футер к низу <<<------------------------------------------------- */
+    (function(){
+        if (  $('footer.footer').length ) {
+            console.log( 'dsddd' );
+
+            $(window).load(function(){
+                footer();
+            });
+
+            $(window).resize(function() {
+                footer();
+            });
+
+            function footer() {
+                var docHeight = $(window).height(),
+                    footerHeight = $('footer.footer').outerHeight(),
+                    footerBottom = $('footer.footer').position().top + footerHeight;
+
+                if (footerBottom < docHeight) {
+                    $('footer.footer').css('margin-top', (docHeight - footerBottom) + 'px');
+                }
+            }
+        }
+    })();
+    /* ------------------------>>> Прижать футер к низу End <<<--------------------------------------------- */
+
+
 
 
 
@@ -217,18 +244,18 @@ jQuery(document).ready(function($){
 
 
     /* ------------------------>>> Анимация скролла при переходе на якорь с Внутренней страницы <<<----- */
-    function animationScrollWithHash(){
+    /*function animationScrollWithHash(){
         if (window.location.hash != '') {
             var hash = window.location.hash;
             $('html,body').stop().animate({scrollTop: $(hash).offset().top - $('.header__menus').innerHeight()}, 1000);
         }
-    }
+    }*/
     //animationScrollWithHash();
     /* ------------------------>>> Анимация скролла при переходе на якорь с Внутренней страницы End <<<- */
 
 
     /* ------------------------>>> about__readMore <<<------------------------------------------------- */
-    (function(){
+    /*(function(){
         if ( $('.about__readMore').length ) {
             $(document).on('click', '.about__readMore', function(){
                 
@@ -246,35 +273,11 @@ jQuery(document).ready(function($){
                 }
             });
         }
-    })();
+    })();*/
     /* ------------------------>>> about__readMore End <<<---------------------------------------------- */
 
 
-    /* ------------------------>>> Прижать футер к низу <<<------------------------------------------------- */
-    (function(){
-        if (  $('footer.footer').length ) {
-            console.log( 'dsddd' );
-            
-            $(window).load(function(){
-                footer();
-            });
 
-            $(window).resize(function() {
-                footer();
-            });
-
-            function footer() {
-                var docHeight = $(window).height(),
-                    footerHeight = $('footer.footer').outerHeight(),
-                    footerBottom = $('footer.footer').position().top + footerHeight;
-
-                if (footerBottom < docHeight) {
-                    $('footer.footer').css('margin-top', (docHeight - footerBottom) + 'px');
-                }
-            }
-        }
-    })();
-    /* ------------------------>>> Прижать футер к низу End <<<--------------------------------------------- */
 
 
     /* ------------------------>>> Animations <<<----------------------------------------------------- */

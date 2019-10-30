@@ -18,10 +18,28 @@ get_header(); ?>
                 <div class="slider_content">
                     <?php $slider = get_field('slider', get_the_ID()); ?>
                     <?php if(!empty($slider)): ?>
-                        <div class="slider slider_list owl-carousel">
+                        <div class="slider slider_list owl-carousel owl-theme">
+                            <?php foreach($slider as $slide): ?>
+                                <a href="<?php echo $slide['image']; ?>" class="slider_link" data-effect="mfp-zoom-in">
+                                    <img
+                                            src="<?php echo $slide['image']; ?>"
+                                            alt=""
+                                            class="slider_image"
+                                            data-thumb='<img src="<?php echo $slide['image']; ?>" />'
+                                    >
+                                </a>
+                            <?php endforeach; ?>
+                        </div>
+
+                        <div class="slider_nav slider_list owl-carousel owl-theme">
                             <?php foreach($slider as $slide): ?>
                                 <a href="<?php echo $slide['image']; ?>" class="slider_link">
-                                    <img src="<?php echo $slide['image']; ?>" alt="" class="slider_image">
+                                    <img
+                                            src="<?php echo $slide['image']; ?>"
+                                            alt=""
+                                            class="slider_image"
+                                            data-thumb='<img src="<?php echo $slide['image']; ?>" />'
+                                    >
                                 </a>
                             <?php endforeach; ?>
                         </div>
