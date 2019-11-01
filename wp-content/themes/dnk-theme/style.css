@@ -1133,6 +1133,15 @@ input.search-field {
     -webkit-box-align: center;
        -ms-flex-align: center;
           align-items: center;
+
+    -webkit-transition: all .6s ease 0s;
+    transition: all .6s ease 0s;
+}
+
+.items_link:hover .categories_name,
+.items_link:hover .categories_name:before {
+    top: 0;
+    bottom: 0;
 }
 
 .categories_nameInner {
@@ -1153,6 +1162,9 @@ input.search-field {
     background-color: #000;
     opacity: .5;
     z-index: 1;
+
+    -webkit-transition: all .6s ease 0s;
+    transition: all .6s ease 0s;
 }
 
 .categories_name,
@@ -1188,8 +1200,26 @@ input.search-field {
     height: auto;
 }
 
-
 .before_after_grid .items_link {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+
+    overflow: hidden;
+    -webkit-box-flex: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+}
+
+.before_after_grid .items_images {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
     -ms-flex-direction: row;
@@ -1201,17 +1231,88 @@ input.search-field {
 
     -ms-flex-wrap: nowrap;
         flex-wrap: nowrap;
+
+    overflow: hidden;
+
+    -webkit-transition: all .6s ease 0s;
+    transition: all .6s ease 0s;
 }
 
 .before_after_img_wrap {
     width: 49.8%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
 }
 
 .before_after_img_wrap img {
     width: 100%;
     height: auto;
     display: block;
+
+    -webkit-transition: all .6s ease 0s;
+    transition: all .6s ease 0s;
 }
+
+/* items hover effect */
+.hover_section {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+
+    -webkit-transition: all .6s ease 0s;
+    transition: all .6s ease 0s;
+}
+
+.hover_section .header_searchBtn {
+    top: auto;
+    left: auto;
+    -webkit-transform: scale(0);
+    transform: scale(0);
+    width: 25px;
+    height: 25px;
+
+    -webkit-transition: all .6s ease 0s;
+    transition: all .6s ease 0s;
+}
+
+.items_link:hover .items_images {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+}
+
+.hover_section:hover .header_searchBtn {
+    -webkit-transform: scale(2);
+    transform: scale(2);
+}
+
+.hover_section .header_searchBtn:before {
+    border-width: 2px;
+}
+
+.hover_section .header_searchBtn:after {
+    width: 2px;
+}
+
+.hover_section:hover {
+    background-color: rgba(0, 0, 0, .6);
+}
+/* items hover effect End */
+
 
 /* ---------------------------------------------------------------------------------------------------- */
 /* ----------------------------->>> gallery End <<<---------------------------------------------------- */

@@ -96,13 +96,18 @@ if ( function_exists( 'pll_current_language' ) ) {
                             ?>
                             <li class="items_listItem">
                                 <a href="<?php the_permalink(); ?>" class="items_link">
-                                    <span class="before_after_img_wrap before_warp">
-                                        <img src="<?php the_field('featured_img_before', get_the_ID()); ?>" alt="<?php echo  __( 'До', 'twentyfifteen' ); ?>">
-                                    </span>
-                                    <span class="before_after_img_wrap after_wrap">
-                                        <img src="<?php the_field('featured_img_after', get_the_ID()); ?>" alt="<?php echo __( 'После', 'twentyfifteen' ); ?>">
+                                    <span class="items_images">
+                                        <span class="before_after_img_wrap before_warp">
+                                            <img src="<?php the_field('featured_img_before', get_the_ID()); ?>" alt="<?php echo  __( 'До', 'twentyfifteen' ); ?>">
+                                        </span>
+                                        <span class="before_after_img_wrap after_wrap">
+                                            <img src="<?php the_field('featured_img_after', get_the_ID()); ?>" alt="<?php echo __( 'После', 'twentyfifteen' ); ?>">
+                                        </span>
                                     </span>
 
+                                    <span class="hover_section">
+                                        <span class="header_searchBtn"></span>
+                                    </span>
                                 </a>
                             </li>
                             <?php if((($index + 1) % $galleryInRow == 0) && (($index + 1) != $wp_query->post_count)): ?>
