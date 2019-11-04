@@ -554,15 +554,15 @@ function hide_admin_notices()
 
 /* ------------------------------------- */
 /** * Disable WordPress updates */
-add_filter('pre_site_transient_update_core', create_function('$a', "return null;"));
+add_filter('pre_site_transient_update_core', null);
 wp_clear_scheduled_hook('wp_version_check');
 /** * Disable WordPress Template Updates */
 remove_action('load-update-core.php', 'wp_update_themes');
-add_filter('pre_site_transient_update_themes', create_function('$a', "return null;"));
+add_filter('pre_site_transient_update_themes', null);
 wp_clear_scheduled_hook('wp_update_themes');
 /** * Disable WordPress plugins update */
 remove_action('load-update-core.php', 'wp_update_plugins');
-add_filter('pre_site_transient_update_plugins', create_function('$a', "return null;"));
+add_filter('pre_site_transient_update_plugins', null);
 /** * Disable emoji */
 remove_action('wp_head', 'print_emoji_detection_script', 7);
 remove_action('wp_print_styles', 'print_emoji_styles');
